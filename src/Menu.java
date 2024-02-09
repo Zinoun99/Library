@@ -8,7 +8,7 @@ public class Menu {
         System.out.println("3. Rechercher un livre");
         System.out.println("4. Emprunter un livre");
         System.out.println("5. Retourner un livre");
-        System.out.println("0. Quitter");
+        System.out.println("0. Quitter"); c
     }
 
     public int recueillirChoix() {

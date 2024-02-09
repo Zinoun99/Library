@@ -45,4 +45,26 @@ public class Library {
         System.out.println("le livre n'existe pas");
         return false;
     }
+
+    public void reservation(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("entrer the name of book :");
+        String nameBook = scanner.nextLine();
+        Book book1 = new Book();
+        for(Book book : livres){
+            if (book.title.equalsIgnoreCase(nameBook)){
+                System.out.println("Entre the name of student!");
+                String idStudent = scanner.nextLine();
+                for(Student student : apprenants){
+                    if(student.Nom.equalsIgnoreCase(idStudent)){
+                        book.student = student; /* Reservation*/
+                        student.books.add(book);
+                    }
+                }
+                /* il rsete la reservation d'un book déja reservé, il faut que afficher error car le book est reservé'*/
+            }
+        }
+    }
 }
+
+
