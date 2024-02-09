@@ -48,10 +48,5 @@ public class Book {
         return title+" "+auteur+" "+ISBN+" "+datePublication;
     }
     Book recherche = new Book();
-    String livre;
-    public void modifierLivre(String title, String auteur, int ISBN, int datePublication){
-        if(Library.rechercherLivre() ){
 
-        }
-    }
 }

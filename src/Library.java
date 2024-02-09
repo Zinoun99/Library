@@ -34,14 +34,15 @@ public class Library {
             return true;
         }
     }
-    public boolean supprimerLivre(Book livre){
-        if(!rechercherLivre(livre.getTitle())){
-            System.out.println("Ce livre est deja supprimé");
-            return false;
+    public boolean supprimerLivre(String title){
+        for (Book livre : livres){
+            if(livre.getTitle().equals(title)){
+                livres.remove(livre);
+                System.out.println("le livre a été supprimé");
+                return true;
+            }
         }
-        else{
-            livres.remove(livre);
-            return true;
-        }
+        System.out.println("le livre n'existe pas");
+        return false;
     }
 }
