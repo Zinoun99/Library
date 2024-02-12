@@ -47,11 +47,11 @@ public class Library{
     public void supprimerLivre() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez le titre de livre à supprimer :");
-        String supprime = scanner.nextLine();
+        String titleSup = scanner.nextLine();
 
         for (int i = 0; i < livres.size(); i++) {
             Book livre = livres.get(i);
-            if (livre.titre.equals(supprime)) {
+            if (livre.titre.equals(titleSup)) {
                 livres.remove(i);
                 System.out.println("Livre a été supprimer! ");
                 i--;
@@ -135,7 +135,6 @@ public class Library{
         System.out.print("Entrez le titre du livre à réserver: ");
         String titreLivre = scanner.nextLine();
 
-        // Recherche du livre dans la liste des livres de la bibliothèque
         Book livreAReserver = null;
         for (Book livre : livres) {
             if (livre.titre.equalsIgnoreCase(titreLivre)) {
@@ -144,19 +143,16 @@ public class Library{
             }
         }
 
-        // Vérifie si le livre est trouvé
         if (livreAReserver == null) {
             System.out.println("Le livre n'existe pas.");
             return;
         }
 
-        // Vérifie si le livre est déjà réservé
         if (livreAReserver.student != null) {
             System.out.println("Le livre est déjà réservé par " + livreAReserver.student.Nom);
             return;
         }
 
-        // Recherche de l'étudiant dans la liste des apprenants de la bibliothèque
         System.out.print("Entrez le nom de l'étudiant: ");
         String nomEtudiant = scanner.nextLine();
         Student etudiant = null;
@@ -167,13 +163,11 @@ public class Library{
             }
         }
 
-        // Vérifie si l'étudiant est trouvé
         if (etudiant == null) {
             System.out.println("L'étudiant n'existe pas.");
             return;
         }
-
-        // Effectue la réservation en associant l'étudiant au livre
+        
         livreAReserver.student = etudiant;
         etudiant.books.add(livreAReserver);
 
